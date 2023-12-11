@@ -32,7 +32,6 @@ qdisc fq_codel 0: root refcnt 2 limit 10240p flows 1024 quantum 1514 target 5ms 
 ```bash
 $sudo tc qdisc add dev enp0s1 root pfifo  # change it to pfifo
 qdisc pfifo 8001: root refcnt 2 limit 1000p # change success
-
 sudo tc qdisc replace dev enp0s1 root handle 1: pfifo limit 10000#  to set a fifo queue with a 10000 packets length.
 ```
 
@@ -61,16 +60,17 @@ iperf3 -c 34.176.178.193 -J
 #### Conclusion
 
 1. **Increase in Throughput with Larger Queue Size:**
-   - In many cases, a larger queue size can increase throughput, especially in situations where network or system resources experience bursts of traffic. A larger buffer allows the system to absorb short-term bursts of incoming data without dropping packets or requests. This can lead to higher throughput because data is not lost due to congestion.
+   
+   In many cases, a larger queue size can increase throughput, especially in situations where network or system resources experience bursts of traffic. A larger buffer allows the system to absorb short-term bursts of incoming data without dropping packets or requests. This can lead to higher throughput because data is not lost due to congestion.
 2. **Mitigating Packet Loss:**
-   - In scenarios where the network or system experiences congestion, a larger queue can help reduce packet loss. When the incoming traffic rate briefly exceeds the processing capacity, packets are stored in the queue until they can be transmitted. This minimizes the need to drop packets due to buffer overflows, which can improve overall throughput.
+   
+   When network or system experiences congestion, a larger queue can reduce packet loss. When the incoming traffic rate briefly exceeds the processing capacity, packets are stored in the queue until they can be transmitted. This minimizes the need to drop packets due to buffer overflows, which can improve overall throughput.
 
 Large queue size drawbacks :
 
 1. **Latency**: Larger queues can introduce additional latency, as data or requests spend more time in the queue before being processed. This can be a concern in real-time applications where low latency is critical.
 2. **Bufferbloat**: Excessive queue sizes can lead to a phenomenon known as "bufferbloat," where data accumulates in the queue, causing increased latency and reduced throughput. It's important to strike a balance between buffer size and maintaining low latency.
 3. **Resource Allocation**: In some cases, a larger queue may lead to inefficient resource allocation. For example, in networking, it may lead to underutilization of bandwidth because the queue absorbs traffic even when resources are available.
-4. **Tail Drops**: Very large queues can lead to "tail drops," where old data or packets are discarded to make room for new data. This can negatively impact the quality of service for certain applications.
 
 #### Wire
 
@@ -80,11 +80,9 @@ If we choose mean delay < 270ms, we can choose 2048 queue size.
 
 If we choose mean delay < 290ms, we can choose 2048 queue size.
 
-其实没有最优的点.
+其实没有最优的点.  不同的 queue disciplines 也不一样. 
 
-不同的 queue disciplines 也不一样. 
-
-为啥queue变大, delay 下降?  因为queue最后会有delay= zero的packet, 没有传输出去, 
+为啥queue变大, delay 下降?  因为queue最后会有delay= zero的packet, 根本没有传输出去, 
 
 默认 bql要关掉. 
 
