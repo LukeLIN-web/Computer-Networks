@@ -1,5 +1,3 @@
-课件: https://shihada.com/basem-shihada/education-page/computer-networks
-
 当时整个CS 只有5个faculty, 一个班30-40人. 持续了几年直到招收到更多教授. 
 
 因为课程人很少, 老师可以叫出每个同学的名字, 用同学名字举例子, 讲reliable的特点, 保证顺序. 
@@ -29,8 +27,6 @@ delay也用ping,   traceroute可以来测 hop.
 可以画出网络的拓扑图. ,比如内网, 外网. 网络用云icon 表示. 
 
 网络一次没有converage, 需要测五个小时可能才收敛.  多线程 ,在 wireless network 可以有大量加速. 
-
-每个作业, 发邮件,还会批改给comment. 
 
 有啥区别?  
 
@@ -118,8 +114,6 @@ TCP BIC（Binary Increase Congestion control）旨在优化高速高延迟网络
 
 DSACK : 可以undo halving of cwnd. 
 
-FACK:   
-
 #### ECN/ELN
 
  Uses a single bit to explicitly notify the source of a congestion or a packet loss. – ECN is set by the routers – ELN is set by the intermediate TCP agent
@@ -130,15 +124,11 @@ FACK:
 2. ECN may increase the congestion  in the presence of higher network transmission in the next round.
 3. Security issues (MITM that falsely sets/unsets the ECN), which can flood a connection in a very short time.
 
-
-
 #### Round Trip Time 
 
 • TCP clock is based on RTT,  Longer RTT reduces the transmission rate.
 
 solutions 
-
-– TCP level: 
 
 • TCP starts with larger cwnd e.g. 4   用更大的拥塞窗口
 
@@ -157,8 +147,6 @@ Network level: • TCP segmentation e.g. TCP for satellite networks STP
 TCP level ：  faster cwnd growth for long RTT ， RTT大， 那就cwnd 增长更快。 
 
 Network level: – Packet dropping policy • Drop Tail 满了扔掉后面来的packet • RED, Flow RED  随机删除一个packet • Class-based queues (CBQ) • Stochastic Fairness Queuing (SFQ)
-
-
 
 #### Solutions for Non-congestion Losses
 
@@ -194,8 +182,6 @@ TCP over High Bandwidth-Delay Product
 
 TCP over WRN suffers from  Slow convergence 
 
-
-
 #### TCP over Lossy Channels
 
 无线的情况, 更难判断 congestion. 因为 Non-congestion losses caused by transmission errors: – packet corruption, – bad links, – channel fading, – hand offs
@@ -216,7 +202,7 @@ Use CSMA with Collision Avoidance
 
 exposed terminal problem .  
 
-RTS/CTS 可以解决 exposed terminal.  *RTS*/*CTS*协议（Request To Send/Clear To Send）即请求发送/清除发送协议. 期中考考了.
+RTS/CTS 可以解决 exposed terminal.  *RTS*/*CTS*协议（Request To Send/Clear To Send）即请求发送/清除发送协议. 
 
 CTS谁先拿到谁发.
 
@@ -243,8 +229,6 @@ Flow‐in‐the‐middle problem
 5G,  频率从GHz 继续提高, 
 
 Mesh的缺点, 如果出口的router 坏了, 那么RTT非常大, 吞吐量会剧减.
-
-
 
 #### wireless TCP
 
@@ -296,8 +280,6 @@ qdisc  是“排队规则”的缩写，它是理解流量控制的基础。每�
 
 我们修改了qdisc, 但是bit rate 还有别的因素, tso offload should be also disabled
 
-
-
 Explicit loss/congestion notification is proposed to solve false-congestion detection at TCP, mention one problem of such scheme.
 
 这个是ECN,
@@ -312,13 +294,9 @@ Consider transferring a file of L bytes. Assume the MSS is 1460 bytes, the RTT i
 2. Calculate the maximum segment size (MSS) considering the headers: 
 3. Calculate the number of segments that can be in flight at a given time: Segments in Flight = BDP / MSS
 
-
-
 Bandwidth Asymmetry damages TCP clocking mechanism. Mention one receiver-side solution.
 
 Q links,  计算时间 ,circuit不用除 Q,  packet 要除Q
-
-
 
 ## solution over OBS
 
