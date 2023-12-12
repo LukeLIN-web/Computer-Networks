@@ -16,7 +16,7 @@
 
 \- 时钟似乎不同步。  delay测量要同步时钟. 
 
-\- 需要更加关注slide质量和结果分析。 
+\- 需要更加关注结果分析。 
 
 delay也用ping,   traceroute可以来测 hop.
 
@@ -296,21 +296,7 @@ qdisc  是“排队规则”的缩写，它是理解流量控制的基础。每�
 
 我们修改了qdisc, 但是bit rate 还有别的因素, tso offload should be also disabled
 
-考试三道题目  , 很多就一两行写完. 
 
-tcp
-
-wireless network.   cts, rts,  
-
-从作业中抽取一个题目
-
-TCP (10 points)
-   5 sub-questions (2 points each)
-Wireless (10 points)
-   5 sub-questions (2 points each)
-Assignment 1 or 2 or 3 (10 points)  
-
- 5 sub-questions (2 points each)
 
 Explicit loss/congestion notification is proposed to solve false-congestion detection at TCP, mention one problem of such scheme.
 
