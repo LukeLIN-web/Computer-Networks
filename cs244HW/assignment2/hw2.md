@@ -1,3 +1,13 @@
++ successfully enabled all TCP flavours and compared them against each other by the throughput experiments.
++ compared wireless and wired results along with the delay on both
++ came to a correct conclusion that TCP BBR has a superior performance for your rest of experiments.
++ I like the comprehensive analysis provided in your document. (Table comparison) 
+
+- Throughput results are unclear to me. It seems that your cwnd size is very large and needs some adjustments.
+- the above applies to the delay results. 
+- in your table comparison, you need to watch that higher throughput results into higher delay with higher cwnd.
+
+
 ## Problem1
 
 iperf3 is different with iperf.  Moreover, macos iperf3 default it doesn't print `cwnd`.  only linux iperf3 can print `cwnd`
