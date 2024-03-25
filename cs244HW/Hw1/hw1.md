@@ -14,6 +14,7 @@
 
 ## Problem1
 
+iperf3不好用， -p 有问题， iperf反而好用。
 ```
 iperf -s # launch server
 iperf -c  mcnode36 # connect server
